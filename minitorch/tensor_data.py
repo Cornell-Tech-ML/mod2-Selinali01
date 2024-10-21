@@ -258,8 +258,8 @@ class TensorData:
 
         # TODO: Implement for Task 2.1.
         # Create new shape and strides based on the given order
-        new_shape = tuple(self.shape[i] for i in order)
-        new_strides = tuple(self._strides[i] for i in order)
+        new_shape = tuple([self.shape[int(i)] for i in order])
+        new_strides = tuple([self.strides[int(i)] for i in order])
 
         return TensorData(
             self._storage,
