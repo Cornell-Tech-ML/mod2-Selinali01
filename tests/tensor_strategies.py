@@ -12,7 +12,6 @@ from hypothesis.strategies import (
 )
 
 import minitorch
-from minitorch.operators import is_close as ops_is_close
 from minitorch import Tensor, TensorBackend, TensorData, UserIndex, UserShape
 
 from .strategies import small_ints
@@ -119,9 +118,3 @@ def matmul_tensors(
     return values
 
 
-def assert_close_tensor(a: Tensor, b: Tensor) -> None:
-    if not ops_is_close(a.all().item(), b.all().item()):
-        assert False, (
-            "Tensors are not close \n x.shape=%s \n x=%s \n y.shape=%s \n y=%s \n Diff=%s"
-            % (a.shape, a, b.shape, b, a - b)
-        )
