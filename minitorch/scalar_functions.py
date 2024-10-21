@@ -206,7 +206,8 @@ class Mul(ScalarFunction):
 
         """
         ctx.save_for_backward(a, b)
-        return operators.mul(a, b)
+        c = a * b
+        return c
 
     @staticmethod
     def backward(ctx: Context, d_output: float) -> Tuple[float, float]:
@@ -281,7 +282,7 @@ class Neg(ScalarFunction):
             The negation of a.
 
         """
-        return operators.neg(a)
+        return -a
 
     @staticmethod
     def backward(ctx: Context, d_output: float) -> float:
@@ -317,9 +318,9 @@ class Sigmoid(ScalarFunction):
             The sigmoid of a.
 
         """
-        sigmoid_val = operators.sigmoid(a)
-        ctx.save_for_backward(sigmoid_val)
-        return sigmoid_val
+        out = operators.sigmoid(a)
+        ctx.save_for_backward(out)
+        return out
 
     @staticmethod
     def backward(ctx: Context, d_output: float) -> float:
@@ -335,27 +336,27 @@ class Sigmoid(ScalarFunction):
             The gradient for the input.
 
         """
-        (sigmoid_val,) = ctx.saved_values
-        return sigmoid_val * (1 - sigmoid_val) * d_output
+        sigma: float = ctx.saved_values[0]
+        return sigma * (1.0 - sigma) * d_output
 
 
 class ReLU(ScalarFunction):
     @staticmethod
-    def forward(ctx: Context, x: float) -> float:
+    def forward(ctx: Context, a: float) -> float:
         """Compute the forward pass for the ReLU function.
 
         Args:
         ----
             ctx: The context containing saved values from the forward pass.
-            x: The input value.
+            a: The input value.
 
         Returns:
         -------
             The result of the ReLU operation.
 
         """
-        ctx.save_for_backward(x)
-        return float(max(0.0, x))  # Explicitly cast to float
+        ctx.save_for_backward(a)
+        return operators.relu(a)
 
     @staticmethod
     def backward(ctx: Context, d_output: float) -> float:
@@ -371,8 +372,8 @@ class ReLU(ScalarFunction):
             The gradient for the input.
 
         """
-        (x,) = ctx.saved_values  # Unpack the single saved value
-        return d_output if x > 0.0 else 0.0
+        (a,) = ctx.saved_values  # Unpack the single saved value
+        return operators.relu_back(a, d_output)
 
 
 class Exp(ScalarFunction):
@@ -392,9 +393,9 @@ class Exp(ScalarFunction):
             The exponential of a.
 
         """
-        exp_val = operators.exp(a)
-        ctx.save_for_backward(exp_val)
-        return exp_val
+        out = operators.exp(a)
+        ctx.save_for_backward(out)
+        return out
 
     @staticmethod
     def backward(ctx: Context, d_output: float) -> float:
@@ -410,8 +411,8 @@ class Exp(ScalarFunction):
             The gradient for the input.
 
         """
-        (exp_val,) = ctx.saved_values
-        return exp_val * d_output
+        out: float = ctx.saved_values[0]
+        return d_output * out
 
 
 class LT(ScalarFunction):
@@ -432,7 +433,7 @@ class LT(ScalarFunction):
             1.0 if a < b, else 0.0.
 
         """
-        return operators.lt(a, b)
+        return 1.0 if a < b else 0.0
 
     @staticmethod
     def backward(ctx: Context, d_output: float) -> Tuple[float, float]:
@@ -469,7 +470,7 @@ class EQ(ScalarFunction):
             1.0 if a == b, else 0.0.
 
         """
-        return float(operators.eq(a, b))  # Convert bool to float
+        return 1.0 if a == b else 0.0
 
     @staticmethod
     def backward(ctx: Context, d_output: float) -> Tuple[float, float]:

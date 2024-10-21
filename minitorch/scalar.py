@@ -163,128 +163,7 @@ class Scalar:
 
         """
         return self * b
-
-    # lt
-    def __lt__(self, b: ScalarLike) -> Scalar:
-        """Compare if this Scalar is less than another Scalar or scalar-like object.
-
-        Args:
-        ----
-            b: The value to compare with.
-
-        Returns:
-        -------
-            A Scalar representing the result of the comparison.
-
-        """
-        return LT.apply(self, b)
-
-    def __gt__(self, b: ScalarLike) -> Scalar:
-        """Compare if this Scalar is greater than another Scalar or scalar-like object.
-
-        Args:
-        ----
-            b: The value to compare with.
-
-        Returns:
-        -------
-            A Scalar representing the result of the comparison.
-
-        """
-        return LT.apply(b, self)
-
-    def __sub__(self, b: ScalarLike) -> Scalar:
-        """Subtract another Scalar or scalar-like object from this Scalar.
-
-        Args:
-        ----
-            b: The value to subtract.
-
-        Returns:
-        -------
-            The result of the subtraction.
-
-        """
-        return Add.apply(self, -b)
-
-    def __neg__(self) -> Scalar:
-        """Negate this Scalar.
-
-        Returns
-        -------
-            The negated Scalar.
-
-        """
-        return Neg.apply(self)
-
-    def __add__(self, b: ScalarLike) -> Scalar:
-        """Add this Scalar to another Scalar or scalar-like object.
-
-        Args:
-        ----
-            b: The value to add.
-
-        Returns:
-        -------
-            The result of the addition.
-
-        """
-        return Add.apply(self, b)
-
-    def __eq__(self, other: ScalarLike) -> Scalar:
-        """Compare this Scalar for equality with another Scalar or scalar-like object.
-
-        Args:
-        ----
-            other: The value to compare with.
-
-        Returns:
-        -------
-            A Scalar representing the result of the comparison (1.0 if equal, 0.0 otherwise).
-
-        """
-        return EQ.apply(self, other)
-
-    def log(self) -> Scalar:
-        """Compute the natural logarithm of this Scalar.
-
-        Returns
-        -------
-            The result of the logarithm operation.
-
-        """
-        return Log.apply(self)
-
-    def exp(self) -> Scalar:
-        """Compute the exponential of this Scalar.
-
-        Returns
-        -------
-            The result of the exponential operation.
-
-        """
-        return Exp.apply(self)
-
-    def sigmoid(self) -> Scalar:
-        """Compute the sigmoid of this Scalar.
-
-        Returns
-        -------
-            The result of the sigmoid operation.
-
-        """
-        return Sigmoid.apply(self)
-
-    def relu(self) -> Scalar:
-        """Compute the ReLU (Rectified Linear Unit) of this Scalar.
-
-        Returns
-        -------
-            The result of the ReLU operation.
-
-        """
-        return ReLU.apply(self)
-
+    
     # Variable elements for backprop
 
     def accumulate_derivative(self, x: Any) -> None:
@@ -320,7 +199,7 @@ class Scalar:
 
         """
         return self.history is None
-
+    
     @property
     def parents(self) -> Iterable[Variable]:
         """Get the parent variables of this Scalar.
@@ -384,6 +263,132 @@ class Scalar:
         backpropagate(self, d_output)
 
     # TODO: Implement for Task 1.2.
+    def __add__(self, b: ScalarLike) -> Scalar:
+        """Add this Scalar to another Scalar or scalar-like object.
+
+        Args:
+        ----
+            b: The value to add.
+
+        Returns:
+        -------
+            The result of the addition.
+
+        """
+        return Add.apply(self, b)
+    
+    def __lt__(self, b: ScalarLike) -> Scalar:
+        """Compare if this Scalar is less than another Scalar or scalar-like object.
+
+        Args:
+        ----
+            b: The value to compare with.
+
+        Returns:
+        -------
+            A Scalar representing the result of the comparison.
+
+        """
+        return LT.apply(self, b)
+
+    def __gt__(self, b: ScalarLike) -> Scalar:
+        """Compare if this Scalar is greater than another Scalar or scalar-like object.
+
+        Args:
+        ----
+            b: The value to compare with.
+
+        Returns:
+        -------
+            A Scalar representing the result of the comparison.
+
+        """
+        return LT.apply(b, self)
+    
+    def __eq__(self, b: ScalarLike) -> Scalar:
+        """Compare this Scalar for equality with another Scalar or scalar-like object.
+
+        Args:
+        ----
+            b: The value to compare with.
+
+        Returns:
+        -------
+            A Scalar representing the result of the comparison (1.0 if equal, 0.0 otherwise).
+
+        """
+        return EQ.apply(b, self)
+
+    def __sub__(self, b: ScalarLike) -> Scalar:
+        """Subtract another Scalar or scalar-like object from this Scalar.
+
+        Args:
+        ----
+            b: The value to subtract.
+
+        Returns:
+        -------
+            The result of the subtraction.
+
+        """
+        return Add.apply(self, -b)
+
+    def __neg__(self) -> Scalar:
+        """Negate this Scalar.
+
+        Returns
+        -------
+            The negated Scalar.
+
+        """
+        return Neg.apply(self)
+
+
+    def log(self) -> Scalar:
+        """Compute the natural logarithm of this Scalar.
+
+        Returns
+        -------
+            The result of the logarithm operation.
+
+        """
+        return Log.apply(self)
+
+    def exp(self) -> Scalar:
+        """Compute the exponential of this Scalar.
+
+        Returns
+        -------
+            The result of the exponential operation.
+
+        """
+        return Exp.apply(self)
+
+    def sigmoid(self) -> Scalar:
+        """Compute the sigmoid of this Scalar.
+
+        Returns
+        -------
+            The result of the sigmoid operation.
+
+        """
+        return Sigmoid.apply(self)
+
+    def relu(self) -> Scalar:
+        """Compute the ReLU (Rectified Linear Unit) of this Scalar.
+
+        Returns
+        -------
+            The result of the ReLU operation.
+
+        """
+        return ReLU.apply(self)
+
+    
+
+    
+
+    
 
 
 # raise NotImplementedError("Need to implement for Task 1.2")
