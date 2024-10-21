@@ -13,7 +13,7 @@ from . import operators
 from .autodiff import Context
 from .tensor_ops import SimpleBackend, TensorBackend
 
-
+from typing import Optional, Any
 
 if TYPE_CHECKING:
     from typing import Any, List, Tuple
@@ -108,7 +108,7 @@ class All(Function):
 
 
 # TODO: Implement for Task 2.3.
-
+##### START 
 class Mul(Function):
     @staticmethod
     def forward(ctx: Context, a: Tensor, b: Tensor) -> Tensor:
@@ -117,8 +117,8 @@ class Mul(Function):
 
     @staticmethod
     def backward(ctx: Context, grad_output: Tensor) -> Tuple[Tensor, Tensor]:
-        a, b = ctx.saved_values
-        return grad_output * b, grad_output * a
+        (a, b) = ctx.saved_values
+        return a.f.mul_zip(b, grad_output), b.f.mul_zip(a, grad_output)
 
 class Sigmoid(Function):
     @staticmethod
@@ -168,15 +168,15 @@ class Exp(Function):
 
 class Sum(Function):
     @staticmethod
-    def forward(ctx: Context, a: Tensor, dim: int) -> Tensor:
+    def forward(ctx: Context, a: Tensor, dim: Tensor) -> Tensor:
         ctx.save_for_backward(a.shape, dim)
-        return a.f.add_reduce(a, dim)
+        return a.f.add_reduce(a, int(dim.item()))
 
     @staticmethod
     def backward(ctx: Context, grad_output: Tensor) -> Tuple[Tensor, float]:
-        original_shape, dim = ctx.saved_values
-        grad = grad_output._new(grad_output._tensor.expand(original_shape))
-        return grad, 0.0
+        (a_shape, dim) = ctx.saved_values
+        return grad_output, 0.0
+
 
 class LT(Function):
     @staticmethod
@@ -190,6 +190,8 @@ class LT(Function):
 class EQ(Function):
     @staticmethod
     def forward(ctx: Context, a: Tensor, b: Tensor) -> Tensor:
+        # TODO: Implement for Task 2.3
+        ctx.save_for_backward(a, b)
         return a.f.eq_zip(a, b)
 
     @staticmethod
@@ -199,19 +201,32 @@ class EQ(Function):
 class IsClose(Function):
     @staticmethod
     def forward(ctx: Context, a: Tensor, b: Tensor) -> Tensor:
+        # TODO: Implement for Task 2.3
+        ctx.save_for_backward(a)
         return a.f.is_close_zip(a, b)
 
 class Permute(Function):
     @staticmethod
     def forward(ctx: Context, a: Tensor, order: Tensor) -> Tensor:
-        ctx.save_for_backward(order)
-        return a._new(a._tensor.permute(*[int(i) for i in order]))
+        # TODO: Implement for Task 2.3
+        rev_order = np.array([0 for _ in range(len(order._tensor._storage))])
+
+        for i, j in enumerate(order._tensor._storage):
+            rev_order[int(j)] = i
+
+        ctx.save_for_backward(rev_order)
+
+        return minitorch.Tensor(
+            a._tensor.permute(*order._tensor._storage), backend=a.backend
+        )
 
     @staticmethod
     def backward(ctx: Context, grad_output: Tensor) -> Tuple[Tensor, float]:
         (order,) = ctx.saved_values
         inverted_order = np.argsort([int(i) for i in order])
         return grad_output._new(grad_output._tensor.permute(*inverted_order)), 0.0
+
+##### FINISH
 
 
 class View(Function):

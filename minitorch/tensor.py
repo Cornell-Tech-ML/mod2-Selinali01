@@ -286,13 +286,14 @@ class Tensor:
 
     # Functions
     # TODO: Implement for Task 2.3.
+    ###### START
     @property
     def size(self) -> int:
-        return int(operators.prod(self.shape))
+        return self._tensor.size
 
     @property
     def dims(self) -> int:
-        return len(self.shape)
+        return self._tensor.dims
 
     def __add__(self, b: TensorLike) -> Tensor:
         return Add.apply(self, self._ensure_tensor(b))
@@ -322,7 +323,10 @@ class Tensor:
         return Neg.apply(self)
 
     def all(self, dim: Optional[int] = None) -> Tensor:
-        return All.apply(self, self._ensure_tensor(dim) if dim is not None else None)
+        if dim is None:
+            return All.apply(self.view(self.size), self._ensure_tensor(0))
+        else:
+            return All.apply(self, self._ensure_tensor(dim))
 
     def is_close(self, y: Tensor) -> Tensor:
         return IsClose.apply(self, y)
@@ -341,8 +345,10 @@ class Tensor:
 
     def sum(self, dim: Optional[int] = None) -> Tensor:
         if dim is None:
-            return Sum.apply(self, self._ensure_tensor(self.dims - 1))
-        return Sum.apply(self, self._ensure_tensor(dim))
+            return Sum.apply(self.contiguous().view(self.size), self._ensure_tensor(0))
+        else:
+            return Sum.apply(self, self._ensure_tensor(dim))
+
 
     def mean(self, dim: Optional[int] = None) -> Tensor:
         sum_result = self.sum(dim)
@@ -359,13 +365,7 @@ class Tensor:
         # dim is ignored in this implementation
         return View.apply(self, tensor(list(shape)))
 
-    '''
-    def permute(self, *order: int) -> Tensor:
-        return Permute.apply(self, tensor(list(order)))
-
-    def view(self, *shape: int) -> Tensor:
-        return View.apply(self, tensor(list(shape)))
-    '''
 
     def zero_grad_(self) -> None:
         self.grad = None
+###### FINISH

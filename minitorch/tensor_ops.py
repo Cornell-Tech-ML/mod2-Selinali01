@@ -267,11 +267,9 @@ def tensor_map(
         for i in range(len(out)):
             to_index(i, out_shape, out_index)
             broadcast_index(out_index, out_shape, in_shape, in_index)
-            
-            out[index_to_position(out_index, out_strides)] = fn(
-                in_storage[index_to_position(in_index, in_strides)]
-            )
-
+            data = in_storage[index_to_position(in_index, in_strides)]
+            map_data = fn(data)
+            out[index_to_position(out_index, out_strides)] = map_data
     return _map
 
 
@@ -322,11 +320,10 @@ def tensor_zip(
             to_index(i, out_shape, out_index)
             broadcast_index(out_index, out_shape, a_shape, a_index)
             broadcast_index(out_index, out_shape, b_shape, b_index)
-            
-            out[index_to_position(out_index, out_strides)] = fn(
-                a_storage[index_to_position(a_index, a_strides)],
-                b_storage[index_to_position(b_index, b_strides)]
-            )
+            a_data = a_storage[index_to_position(a_index, a_strides)]
+            b_data = b_storage[index_to_position(b_index, b_strides)]
+            zip_data = fn(a_data, b_data)
+            out[index_to_position(out_index, out_strides)] = zip_data
 
     return _zip
 
@@ -358,29 +355,12 @@ def tensor_reduce(
     ) -> None:
         # TODO: Implement for Task 2.3.
         out_index = np.array(out_shape)
-        a_index = np.array(a_shape)
         for i in range(len(out)):
             to_index(i, out_shape, out_index)
-            a_index[:] = out_index[:]
-            
-            # Handle reduction dimension
-            reduce_size = a_shape[reduce_dim]
-            reduce_stride = a_strides[reduce_dim]
-            
-            # Get the starting position for this output element
-            a_position = index_to_position(a_index, a_strides)
-            
-            # Initialize accumulator with the first element
-            accumulator = a_storage[a_position]
-            
-            # Reduce over the specified dimension
-            for j in range(1, reduce_size):
-                a_position += reduce_stride  # Use reduce_stride to move to next element
-                accumulator = fn(accumulator, a_storage[a_position])
-            
-            # Store the result in the output tensor
-            out[index_to_position(out_index, out_strides)] = accumulator
-
+            for j in range(a_shape[reduce_dim]):
+                out_index[reduce_dim] = j
+                a_data = a_storage[index_to_position(out_index, a_strides)]
+                out[i] = fn(out[i], a_data)
     return _reduce
 
 
