@@ -13,6 +13,10 @@ from . import operators
 from .autodiff import Context
 from .tensor_ops import SimpleBackend, TensorBackend
 
+# ADD THIS
+#from .scalar_functions import EQ
+from . import scalar_functions
+
 if TYPE_CHECKING:
     from typing import Any, List, Tuple
 
