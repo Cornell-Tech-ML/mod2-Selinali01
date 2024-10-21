@@ -100,7 +100,8 @@ def broadcast_index(
         else:
             out_index[i] = 0
     
-    
+    # Reverse it back to the original order
+    out_index[:] = out_index[::-1]
 
 
 def shape_broadcast(shape1: UserShape, shape2: UserShape) -> UserShape:
