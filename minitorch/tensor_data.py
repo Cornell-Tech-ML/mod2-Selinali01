@@ -88,7 +88,19 @@ def broadcast_index(
 
     """
     # TODO: Implement for Task 2.2.
-    raise NotImplementedError("Need to implement for Task 2.2")
+    # Reverse the order of dimensions for easier right-to-left matching
+    big_index = big_index[::-1]
+    big_shape = big_shape[::-1]
+    shape = shape[::-1]
+    out_index = out_index[::-1]
+    
+    for i, (idx, s) in enumerate(zip(big_index, shape)):
+        if s > 1:
+            out_index[i] = idx % s
+        else:
+            out_index[i] = 0
+    
+    
 
 
 def shape_broadcast(shape1: UserShape, shape2: UserShape) -> UserShape:
@@ -106,7 +118,22 @@ def shape_broadcast(shape1: UserShape, shape2: UserShape) -> UserShape:
 
     """
     # TODO: Implement for Task 2.2.
-    raise NotImplementedError("Need to implement for Task 2.2")
+    # Determine the maximum number of dimensions
+    max_dims = max(len(shape1), len(shape2))
+    
+    # Pad the shorter shape with 1's
+    shape1_padded = (1,) * (max_dims - len(shape1)) + shape1
+    shape2_padded = (1,) * (max_dims - len(shape2)) + shape2
+    
+    # Create the new broadcasted shape
+    broadcasted_shape = []
+    for s1, s2 in zip(shape1_padded, shape2_padded):
+        if s1 == 1 or s2 == 1 or s1 == s2:
+            broadcasted_shape.append(max(s1, s2))
+        else:
+            raise IndexingError(f"Cannot broadcast shapes {shape1} and {shape2}")
+    
+    return tuple(broadcasted_shape)
 
 
 def strides_from_shape(shape: UserShape) -> UserStrides:
