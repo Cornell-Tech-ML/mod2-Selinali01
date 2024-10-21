@@ -88,24 +88,6 @@ Epoch: 500/500, loss: 5.011093332307256, correct: 50
 *Figure 2: Loss graph for Linear Dataset*
 
 
-## Dataset 2 (Diag) Results
-Number of points: 50
-Size of hidden layer: 2
-Learning rate: 0.1
-Number of epochs: 1325
-
-Time per epoch: 0.032s
-
-### Training logs:
-
-### Training Visualizations
-
-![Dataset 1 Decision Boundary](linear.png)
-*Figure 1: Decision boundary for Linear Dataset*
-
-![Dataset 1 Loss Graph](linear_loss.png)
-*Figure 2: Loss graph for Diag Dataset*
-
 
 
 ## Dataset 2 (Diag) Results
@@ -263,13 +245,167 @@ Epoch: 1325/1325, loss: 1.332137192092052, correct: 50
 
 
 
-## Dataset 2 (Diag) Results
+## Dataset 3 (Split) Results
+Number of points: 50
+Size of hidden layer: 3
+Learning rate: 0.5
+Number of epochs: 1325
+
+Time per epoch: 0.046s
+
+### Training logs:
+Epoch: 0/1325, loss: 0, correct: 0
+Epoch: 0/1325, loss: 0, correct: 0
+Epoch: 10/1325, loss: 34.44234184587127, correct: 28
+Epoch: 20/1325, loss: 34.34579838727314, correct: 28
+Epoch: 30/1325, loss: 34.311246092948714, correct: 28
+Epoch: 40/1325, loss: 34.28283026290404, correct: 28
+Epoch: 50/1325, loss: 34.24328207938845, correct: 28
+Epoch: 60/1325, loss: 34.21280986657266, correct: 28
+Epoch: 70/1325, loss: 34.17491909496652, correct: 28
+Epoch: 80/1325, loss: 34.13410145983466, correct: 28
+Epoch: 90/1325, loss: 34.08172162840248, correct: 28
+Epoch: 100/1325, loss: 34.00669975858772, correct: 28
+Epoch: 110/1325, loss: 33.916658669592046, correct: 28
+Epoch: 120/1325, loss: 33.79693486198778, correct: 28
+Epoch: 130/1325, loss: 33.63103693178534, correct: 28
+Epoch: 140/1325, loss: 33.394397189025355, correct: 28
+Epoch: 150/1325, loss: 33.04722335898342, correct: 29
+Epoch: 160/1325, loss: 32.534159147732076, correct: 32
+Epoch: 170/1325, loss: 31.771754715697135, correct: 35
+Epoch: 180/1325, loss: 30.65829160568258, correct: 34
+Epoch: 190/1325, loss: 29.067431455364165, correct: 37
+Epoch: 200/1325, loss: 31.005413327112173, correct: 28
+Epoch: 210/1325, loss: 29.223634937846864, correct: 30
+Epoch: 220/1325, loss: 28.209807430745354, correct: 31
+Epoch: 230/1325, loss: 29.695876483602692, correct: 30
+Epoch: 240/1325, loss: 28.76035478142832, correct: 31
+Epoch: 250/1325, loss: 25.891360147811405, correct: 34
+Epoch: 260/1325, loss: 27.019320358049452, correct: 33
+Epoch: 270/1325, loss: 32.07609611772739, correct: 31
+Epoch: 280/1325, loss: 24.53592048364221, correct: 36
+Epoch: 290/1325, loss: 25.003652595005942, correct: 36
+Epoch: 300/1325, loss: 24.262358437872475, correct: 38
+Epoch: 310/1325, loss: 19.53865595623744, correct: 44
+Epoch: 320/1325, loss: 23.451893996448867, correct: 40
+Epoch: 330/1325, loss: 17.917779219519957, correct: 44
+Epoch: 340/1325, loss: 22.844367412505118, correct: 40
+Epoch: 350/1325, loss: 16.094035734852977, correct: 44
+Epoch: 360/1325, loss: 18.045398982587216, correct: 44
+Epoch: 370/1325, loss: 17.061804531908717, correct: 44
+Epoch: 380/1325, loss: 23.25386214818934, correct: 40
+Epoch: 390/1325, loss: 10.776702557014714, correct: 47
+Epoch: 400/1325, loss: 19.619261791537863, correct: 41
+Epoch: 410/1325, loss: 8.205424069526641, correct: 48
+Epoch: 420/1325, loss: 10.103364642835965, correct: 48
+Epoch: 430/1325, loss: 7.700280764730377, correct: 47
+Epoch: 440/1325, loss: 9.273327078862982, correct: 46
+Epoch: 450/1325, loss: 7.157279926433809, correct: 48
+Epoch: 460/1325, loss: 24.47474001324634, correct: 39
+Epoch: 470/1325, loss: 5.12467450423501, correct: 49
+Epoch: 480/1325, loss: 8.353467808437458, correct: 47
+Epoch: 490/1325, loss: 10.127851364775765, correct: 44
+Epoch: 500/1325, loss: 4.887448858628611, correct: 49
+Epoch: 510/1325, loss: 8.261309994788505, correct: 48
+Epoch: 520/1325, loss: 8.28928471622818, correct: 48
+Epoch: 530/1325, loss: 8.325167737536074, correct: 44
+Epoch: 540/1325, loss: 29.851385461981348, correct: 41
+Epoch: 550/1325, loss: 4.038264520186492, correct: 49
+Epoch: 560/1325, loss: 3.9959219344488415, correct: 49
+Epoch: 570/1325, loss: 8.785403607486952, correct: 45
+Epoch: 580/1325, loss: 6.483388818392635, correct: 48
+Epoch: 590/1325, loss: 5.2822244381136905, correct: 48
+Epoch: 600/1325, loss: 3.545477791064397, correct: 49
+Epoch: 610/1325, loss: 5.882514294544366, correct: 49
+Epoch: 620/1325, loss: 3.5963055679288116, correct: 49
+Epoch: 630/1325, loss: 3.239005652640607, correct: 50
+Epoch: 640/1325, loss: 3.3374566769633733, correct: 50
+Epoch: 650/1325, loss: 2.638111402745402, correct: 50
+Epoch: 660/1325, loss: 5.238037506388571, correct: 49
+Epoch: 670/1325, loss: 3.3814414482376636, correct: 49
+Epoch: 680/1325, loss: 8.748130779938629, correct: 46
+Epoch: 690/1325, loss: 1.855731453019002, correct: 50
+Epoch: 700/1325, loss: 3.0916304342480165, correct: 49
+Epoch: 710/1325, loss: 1.5192484150567476, correct: 50
+Epoch: 720/1325, loss: 6.2626710626968345, correct: 47
+Epoch: 730/1325, loss: 4.823874669598932, correct: 47
+Epoch: 740/1325, loss: 2.7508125830336283, correct: 49
+Epoch: 750/1325, loss: 1.289171065470027, correct: 50
+Epoch: 760/1325, loss: 1.5162816932685608, correct: 50
+Epoch: 770/1325, loss: 75.35896089013387, correct: 34
+Epoch: 780/1325, loss: 3.0103857517188763, correct: 49
+Epoch: 790/1325, loss: 5.009457573807063, correct: 48
+Epoch: 800/1325, loss: 2.3471858850570757, correct: 49
+Epoch: 810/1325, loss: 84.57033084818711, correct: 28
+Epoch: 820/1325, loss: 3.6455423827733817, correct: 49
+Epoch: 830/1325, loss: 2.904396115490061, correct: 49
+Epoch: 840/1325, loss: 3.79215301899335, correct: 49
+Epoch: 850/1325, loss: 1.1197445944157107, correct: 50
+Epoch: 860/1325, loss: 1.0446906802013423, correct: 50
+Epoch: 870/1325, loss: 6.0515943894465725, correct: 48
+Epoch: 880/1325, loss: 2.357478582489087, correct: 49
+Epoch: 890/1325, loss: 0.9902071033712303, correct: 50
+Epoch: 900/1325, loss: 0.9918218245809329, correct: 50
+Epoch: 910/1325, loss: 6.931036254373077, correct: 47
+Epoch: 920/1325, loss: 4.866714725313176, correct: 47
+Epoch: 930/1325, loss: 4.175590182484522, correct: 48
+Epoch: 940/1325, loss: 3.0665820638406833, correct: 49
+Epoch: 950/1325, loss: 2.093405394596845, correct: 49
+Epoch: 960/1325, loss: 0.9369124404346558, correct: 50
+Epoch: 970/1325, loss: 0.6816274404297956, correct: 50
+Epoch: 980/1325, loss: 0.5858889764917756, correct: 50
+Epoch: 990/1325, loss: 0.5286826567898242, correct: 50
+Epoch: 1000/1325, loss: 0.5052524058034561, correct: 50
+Epoch: 1010/1325, loss: 0.5025254842492306, correct: 50
+Epoch: 1020/1325, loss: 10.660746959867812, correct: 46
+Epoch: 1030/1325, loss: 4.774250482362347, correct: 49
+Epoch: 1040/1325, loss: 3.0999581058276813, correct: 49
+Epoch: 1050/1325, loss: 2.4347257367359165, correct: 49
+Epoch: 1060/1325, loss: 2.060367780621897, correct: 49
+Epoch: 1070/1325, loss: 1.676820985770456, correct: 49
+Epoch: 1080/1325, loss: 3.9265346558713397, correct: 48
+Epoch: 1090/1325, loss: 0.7360587326367434, correct: 50
+Epoch: 1100/1325, loss: 0.5627701845355397, correct: 50
+Epoch: 1110/1325, loss: 0.4939556100088521, correct: 50
+Epoch: 1120/1325, loss: 0.4504701031709112, correct: 50
+Epoch: 1130/1325, loss: 0.4157388822244322, correct: 50
+Epoch: 1140/1325, loss: 0.38836196580290244, correct: 50
+Epoch: 1150/1325, loss: 0.3650506262949988, correct: 50
+Epoch: 1160/1325, loss: 0.3455846648542117, correct: 50
+Epoch: 1170/1325, loss: 0.3281570914129353, correct: 50
+Epoch: 1180/1325, loss: 0.3128928012687672, correct: 50
+Epoch: 1190/1325, loss: 0.29910752863819506, correct: 50
+Epoch: 1200/1325, loss: 0.28658763964127393, correct: 50
+Epoch: 1210/1325, loss: 0.2751894254867031, correct: 50
+Epoch: 1220/1325, loss: 0.2647096602667731, correct: 50
+Epoch: 1230/1325, loss: 0.2550677098490352, correct: 50
+Epoch: 1240/1325, loss: 0.2461640299277126, correct: 50
+Epoch: 1250/1325, loss: 0.23791455953201274, correct: 50
+Epoch: 1260/1325, loss: 0.23024825569982418, correct: 50
+Epoch: 1270/1325, loss: 0.2231188149613314, correct: 50
+Epoch: 1280/1325, loss: 0.21644414301019493, correct: 50
+Epoch: 1290/1325, loss: 0.2101959889817249, correct: 50
+Epoch: 1300/1325, loss: 0.20433413794253005, correct: 50
+Epoch: 1310/1325, loss: 0.19884254675051086, correct: 50
+Epoch: 1320/1325, loss: 0.19364264386943758, correct: 50
+Epoch: 1325/1325, loss: 0.191154813107099, correct: 50
+
+### Training Visualizations
+
+![Dataset 3 Decision Boundary](split.png)
+*Figure 5: Decision boundary for Split Dataset*
+
+![Dataset 3 Loss Graph](split_loss.png)
+*Figure 6: Loss graph for Split Dataset*
+
+
+## Dataset 4 (Diag) Results
 Number of points: 50
 Size of hidden layer: 2
 Learning rate: 0.1
-Number of epochs: 500
+Number of epochs: 1325
 
-Time per epoch: 0.031s
+Time per epoch: 0.032s
 
 ### Training logs:
 
