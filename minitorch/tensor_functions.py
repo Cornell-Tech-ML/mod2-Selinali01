@@ -151,7 +151,7 @@ class ReLU(Function):
     @staticmethod
     def backward(ctx: Context, grad_output: Tensor) -> Tensor:
         (a,) = ctx.saved_values
-        return grad_output * (a._tensor > 0)
+        return grad_output.f.relu_back_zip(a, grad_output)
 
 class Log(Function):
     @staticmethod
