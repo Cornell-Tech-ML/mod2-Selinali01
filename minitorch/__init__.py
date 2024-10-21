@@ -1,3 +1,8 @@
+"""Provides a collection of modules for tensor operations, autodifferentiation, and neural network functionalities.
+
+Includes implementations for tensor computations, automatic differentiation, optimization algorithms, neural network modules, dataset handling, and testing utilities.
+"""
+
 from .testing import MathTest, MathTestVariable  # type: ignore # noqa: F401,F403
 from .tensor_data import *  # noqa: F401,F403
 from .tensor import *  # noqa: F401,F403
