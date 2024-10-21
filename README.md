@@ -399,20 +399,180 @@ Epoch: 1325/1325, loss: 0.191154813107099, correct: 50
 *Figure 6: Loss graph for Split Dataset*
 
 
-## Dataset 4 (Diag) Results
+## Dataset 4 (XOR) Results
 Number of points: 50
-Size of hidden layer: 2
+Size of hidden layer: 8
 Learning rate: 0.1
-Number of epochs: 1325
+Number of epochs: 1100
 
-Time per epoch: 0.032s
+Time per epoch: 0.156s
 
 ### Training logs:
+Epoch: 0/975, loss: 0, correct: 0
+Epoch: 0/1050, loss: 0, correct: 0
+Epoch: 10/1050, loss: 51.05178085154091, correct: 25
+Epoch: 20/1050, loss: 42.51689412887024, correct: 25
+Epoch: 30/1050, loss: 38.972328127841905, correct: 25
+Epoch: 40/1050, loss: 37.14527264781833, correct: 25
+Epoch: 50/1050, loss: 36.11500444659494, correct: 25
+Epoch: 60/1050, loss: 35.51585307892398, correct: 25
+Epoch: 70/1050, loss: 35.15872446991342, correct: 25
+Epoch: 80/1050, loss: 34.94757315256189, correct: 25
+Epoch: 90/1050, loss: 34.82823965548285, correct: 29
+Epoch: 100/1050, loss: 34.75527912038551, correct: 32
+Epoch: 110/1050, loss: 34.70352715326273, correct: 33
+Epoch: 120/1050, loss: 34.669412519715046, correct: 29
+Epoch: 130/1050, loss: 34.64583015666602, correct: 28
+Epoch: 140/1050, loss: 34.627855756669184, correct: 26
+Epoch: 150/1050, loss: 34.61253579801602, correct: 26
+Epoch: 160/1050, loss: 34.600351864707264, correct: 26
+Epoch: 170/1050, loss: 34.588425707416434, correct: 26
+Epoch: 180/1050, loss: 34.57898374669223, correct: 25
+Epoch: 190/1050, loss: 34.569508943139496, correct: 25
+Epoch: 200/1050, loss: 34.55698447820635, correct: 25
+Epoch: 210/1050, loss: 34.537547808812974, correct: 25
+Epoch: 220/1050, loss: 34.522392691981054, correct: 25
+Epoch: 230/1050, loss: 34.50681616699292, correct: 25
+Epoch: 240/1050, loss: 34.49347397823365, correct: 25
+Epoch: 250/1050, loss: 34.47919853024837, correct: 25
+Epoch: 260/1050, loss: 34.46367885647396, correct: 25
+Epoch: 270/1050, loss: 34.44856056481532, correct: 25
+Epoch: 280/1050, loss: 34.43255086159597, correct: 25
+Epoch: 290/1050, loss: 34.41598716954683, correct: 25
+Epoch: 300/1050, loss: 34.39938703960985, correct: 25
+Epoch: 310/1050, loss: 34.38732391393198, correct: 25
+Epoch: 320/1050, loss: 34.374832871745284, correct: 25
+Epoch: 330/1050, loss: 34.360379057845215, correct: 25
+Epoch: 340/1050, loss: 34.347631412955145, correct: 25
+Epoch: 350/1050, loss: 34.33516685375669, correct: 25
+Epoch: 360/1050, loss: 34.32289871094647, correct: 25
+Epoch: 370/1050, loss: 34.312279359340515, correct: 25
+Epoch: 380/1050, loss: 34.29840081410521, correct: 26
+Epoch: 390/1050, loss: 34.283731900030354, correct: 26
+Epoch: 400/1050, loss: 34.26886917929814, correct: 26
+Epoch: 410/1050, loss: 34.25336388992932, correct: 26
+Epoch: 420/1050, loss: 34.238213812565384, correct: 26
+Epoch: 430/1050, loss: 34.223021954397616, correct: 26
+Epoch: 440/1050, loss: 34.21131471673118, correct: 26
+Epoch: 450/1050, loss: 34.20093948381615, correct: 26
+Epoch: 0/1050, loss: 0, correct: 0
+Epoch: 0/1050, loss: 0, correct: 0
+Epoch: 0/1100, loss: 0, correct: 0
+Epoch: 10/1100, loss: 33.67356657409145, correct: 33
+Epoch: 20/1100, loss: 32.90830890171446, correct: 41
+Epoch: 30/1100, loss: 32.47999847556447, correct: 43
+Epoch: 40/1100, loss: 32.15153234112855, correct: 45
+Epoch: 50/1100, loss: 31.839127139287235, correct: 44
+Epoch: 60/1100, loss: 31.519735492984957, correct: 43
+Epoch: 70/1100, loss: 31.19146356673883, correct: 42
+Epoch: 80/1100, loss: 30.856082552780855, correct: 43
+Epoch: 90/1100, loss: 30.508096287872117, correct: 43
+Epoch: 100/1100, loss: 30.14023234135131, correct: 43
+Epoch: 110/1100, loss: 29.747753013038576, correct: 43
+Epoch: 120/1100, loss: 29.330286480698163, correct: 41
+Epoch: 130/1100, loss: 28.895801367499274, correct: 41
+Epoch: 140/1100, loss: 28.448318600581906, correct: 42
+Epoch: 150/1100, loss: 27.982140815276278, correct: 42
+Epoch: 160/1100, loss: 27.498097374625466, correct: 42
+Epoch: 170/1100, loss: 26.99972283759524, correct: 42
+Epoch: 180/1100, loss: 26.48183957634508, correct: 42
+Epoch: 190/1100, loss: 25.944534938258137, correct: 42
+Epoch: 200/1100, loss: 25.396869284043117, correct: 43
+Epoch: 210/1100, loss: 24.834442314444527, correct: 43
+Epoch: 220/1100, loss: 24.25801516941358, correct: 44
+Epoch: 230/1100, loss: 23.67993781962576, correct: 44
+Epoch: 240/1100, loss: 23.0931194188686, correct: 44
+Epoch: 250/1100, loss: 22.504764508723824, correct: 44
+Epoch: 260/1100, loss: 21.92137483565994, correct: 44
+Epoch: 270/1100, loss: 21.339667738467657, correct: 46
+Epoch: 280/1100, loss: 20.76528019177336, correct: 46
+Epoch: 290/1100, loss: 20.2019549244951, correct: 46
+Epoch: 300/1100, loss: 19.644560091131225, correct: 45
+Epoch: 310/1100, loss: 19.10616336357821, correct: 45
+Epoch: 320/1100, loss: 18.571497841297916, correct: 45
+Epoch: 330/1100, loss: 18.02955320616748, correct: 45
+Epoch: 340/1100, loss: 17.533338890549633, correct: 45
+Epoch: 350/1100, loss: 17.064063569931417, correct: 46
+Epoch: 360/1100, loss: 16.60409043929816, correct: 46
+Epoch: 370/1100, loss: 16.162460002312482, correct: 46
+Epoch: 380/1100, loss: 15.701751951680384, correct: 46
+Epoch: 390/1100, loss: 15.275383312337983, correct: 46
+Epoch: 400/1100, loss: 14.852292629862239, correct: 46
+Epoch: 410/1100, loss: 14.44124169129718, correct: 46
+Epoch: 420/1100, loss: 14.052013711168819, correct: 46
+Epoch: 430/1100, loss: 13.68253568603813, correct: 46
+Epoch: 440/1100, loss: 13.33342281681359, correct: 46
+Epoch: 450/1100, loss: 12.997040461969956, correct: 46
+Epoch: 460/1100, loss: 12.667511142884681, correct: 46
+Epoch: 470/1100, loss: 12.352187847183538, correct: 46
+Epoch: 480/1100, loss: 12.050605166074808, correct: 47
+Epoch: 490/1100, loss: 11.772469045262932, correct: 47
+Epoch: 500/1100, loss: 11.490362241514443, correct: 47
+Epoch: 510/1100, loss: 11.225632834828845, correct: 47
+Epoch: 520/1100, loss: 10.97306947712554, correct: 48
+Epoch: 530/1100, loss: 10.733512772645751, correct: 48
+Epoch: 540/1100, loss: 10.496511678520292, correct: 49
+Epoch: 550/1100, loss: 10.272132817687528, correct: 49
+Epoch: 560/1100, loss: 10.05625524056986, correct: 49
+Epoch: 570/1100, loss: 9.848476463962804, correct: 49
+Epoch: 580/1100, loss: 9.651229047542278, correct: 49
+Epoch: 590/1100, loss: 9.457012886727982, correct: 50
+Epoch: 600/1100, loss: 9.276044410261036, correct: 50
+Epoch: 610/1100, loss: 9.096906273677195, correct: 50
+Epoch: 620/1100, loss: 8.924453018636092, correct: 50
+Epoch: 630/1100, loss: 8.756179990453633, correct: 50
+Epoch: 640/1100, loss: 8.595385874549827, correct: 50
+Epoch: 650/1100, loss: 8.441016175782506, correct: 50
+Epoch: 660/1100, loss: 8.295116759923395, correct: 50
+Epoch: 670/1100, loss: 8.14967959344639, correct: 50
+Epoch: 680/1100, loss: 8.006064436267058, correct: 50
+Epoch: 690/1100, loss: 7.869438090823497, correct: 50
+Epoch: 700/1100, loss: 7.7379455461354, correct: 50
+Epoch: 710/1100, loss: 7.6103091317907605, correct: 50
+Epoch: 720/1100, loss: 7.4847754831026805, correct: 50
+Epoch: 730/1100, loss: 7.3645763361907814, correct: 50
+Epoch: 740/1100, loss: 7.251183496723578, correct: 50
+Epoch: 750/1100, loss: 7.13792949390488, correct: 50
+Epoch: 760/1100, loss: 7.022151866633972, correct: 50
+Epoch: 770/1100, loss: 6.915813063988364, correct: 50
+Epoch: 780/1100, loss: 6.813239713133932, correct: 50
+Epoch: 790/1100, loss: 6.707645148880317, correct: 50
+Epoch: 800/1100, loss: 6.61051230677013, correct: 50
+Epoch: 810/1100, loss: 6.5102907816732625, correct: 50
+Epoch: 820/1100, loss: 6.41689610381647, correct: 50
+Epoch: 830/1100, loss: 6.321126423652195, correct: 50
+Epoch: 840/1100, loss: 6.232136578908295, correct: 50
+Epoch: 850/1100, loss: 6.144414018581485, correct: 50
+Epoch: 860/1100, loss: 6.056228161054338, correct: 50
+Epoch: 870/1100, loss: 5.972128297654506, correct: 50
+Epoch: 880/1100, loss: 5.887414662200431, correct: 50
+Epoch: 890/1100, loss: 5.805235472858169, correct: 50
+Epoch: 900/1100, loss: 5.724918609782226, correct: 50
+Epoch: 910/1100, loss: 5.646999964151233, correct: 50
+Epoch: 920/1100, loss: 5.568306800537564, correct: 50
+Epoch: 930/1100, loss: 5.493325572567374, correct: 50
+Epoch: 940/1100, loss: 5.417940076852992, correct: 50
+Epoch: 950/1100, loss: 5.345240976245478, correct: 50
+Epoch: 960/1100, loss: 5.2746008869867085, correct: 50
+Epoch: 970/1100, loss: 5.203210409734058, correct: 50
+Epoch: 980/1100, loss: 5.140427623886673, correct: 50
+Epoch: 990/1100, loss: 5.069058267114329, correct: 50
+Epoch: 1000/1100, loss: 5.011729581737261, correct: 50
+Epoch: 1010/1100, loss: 4.944654125258695, correct: 50
+Epoch: 1020/1100, loss: 4.875738364878105, correct: 50
+Epoch: 1030/1100, loss: 4.815288762826693, correct: 50
+Epoch: 1040/1100, loss: 4.7618010148775785, correct: 50
+Epoch: 1050/1100, loss: 4.698564083540865, correct: 50
+Epoch: 1060/1100, loss: 4.634654180745851, correct: 50
+Epoch: 1070/1100, loss: 4.5770277121752985, correct: 50
+Epoch: 1080/1100, loss: 4.520340972282602, correct: 50
+Epoch: 1090/1100, loss: 4.464530581350331, correct: 50
+Epoch: 1100/1100, loss: 4.412329299296545, correct: 50
 
 ### Training Visualizations
 
-![Dataset 1 Decision Boundary](linear.png)
-*Figure 1: Decision boundary for Linear Dataset*
+![Dataset 4 Decision Boundary](xor.png)
+*Figure 7: Decision boundary for XOR Dataset*
 
-![Dataset 1 Loss Graph](linear_loss.png)
-*Figure 2: Loss graph for Diag Dataset*
+![Dataset 1 Loss Graph](xor_loss.png)
+*Figure 8: Loss graph for XOR Dataset*
