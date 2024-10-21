@@ -88,20 +88,13 @@ def broadcast_index(
 
     """
     # TODO: Implement for Task 2.2.
-    # Reverse the order of dimensions for easier right-to-left matching
-    big_index = big_index[::-1]
-    big_shape = big_shape[::-1]
-    shape = shape[::-1]
-    out_index = out_index[::-1]
-    
-    for i, (idx, s) in enumerate(zip(big_index, shape)):
-        if s > 1:
-            out_index[i] = idx % s
-        else:
+    big_start_dim = len(big_shape) - len(shape)
+    for i, position in enumerate(shape):
+        if position <= 1 and i < len(out_index):
             out_index[i] = 0
-    
-    # Reverse it back to the original order
-    out_index[:] = out_index[::-1]
+        else:
+            out_index[i] = big_index[i + big_start_dim]
+    return
 
 
 def shape_broadcast(shape1: UserShape, shape2: UserShape) -> UserShape:
