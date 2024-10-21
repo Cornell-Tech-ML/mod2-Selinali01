@@ -31,7 +31,7 @@ def central_difference(f: Any, *vals: Any, arg: int = 0, epsilon: float = 1e-6) 
     vals2[arg] = vals2[arg] - epsilon
     delta = f(*vals1) - f(*vals2)
     # Compute the central difference
-    return delta / (2 *epsilon)
+    return delta / (2 * epsilon)
 
 
 variable_count = 1
@@ -128,8 +128,8 @@ def topological_sort(variable: Variable) -> Iterable[Variable]:
                 if not m.is_constant():
                     visit(m)
         seen.add(var.unique_id)
-        order.insert(0,var)
-    
+        order.insert(0, var)
+
     visit(variable)
     return order
 

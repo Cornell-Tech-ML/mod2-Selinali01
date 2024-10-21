@@ -163,7 +163,7 @@ class Scalar:
 
         """
         return self * b
-    
+
     # Variable elements for backprop
 
     def accumulate_derivative(self, x: Any) -> None:
@@ -199,7 +199,7 @@ class Scalar:
 
         """
         return self.history is None
-    
+
     @property
     def parents(self) -> Iterable[Variable]:
         """Get the parent variables of this Scalar.
@@ -276,7 +276,7 @@ class Scalar:
 
         """
         return Add.apply(self, b)
-    
+
     def __lt__(self, b: ScalarLike) -> Scalar:
         """Compare if this Scalar is less than another Scalar or scalar-like object.
 
@@ -304,7 +304,7 @@ class Scalar:
 
         """
         return LT.apply(b, self)
-    
+
     def __eq__(self, b: ScalarLike) -> Scalar:
         """Compare this Scalar for equality with another Scalar or scalar-like object.
 
@@ -342,7 +342,6 @@ class Scalar:
 
         """
         return Neg.apply(self)
-
 
     def log(self) -> Scalar:
         """Compute the natural logarithm of this Scalar.
@@ -383,12 +382,6 @@ class Scalar:
 
         """
         return ReLU.apply(self)
-
-    
-
-    
-
-    
 
 
 # raise NotImplementedError("Need to implement for Task 1.2")
